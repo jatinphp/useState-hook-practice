@@ -2,11 +2,25 @@ import React, { useState } from "react";
 import Practice from "./practice";
 
 function App() {
-  const { tesla, honda } = Practice;
-  const teslaTopSpeed = tesla.speedStats.topSpeed;
-  const hondaTopSpeed = honda.speedStats.topSpeed;
-  const teslaTopColour = tesla.coloursByPopularity[0];
-  const hondaTopColour = honda.coloursByPopularity[0];
+  const [tesla, honda] = Practice;
+  const {
+    speedStats: { topSpeed: teslaTopSpeed },
+  } = tesla;
+  const {
+    speedStats: { topSpeed: hondaTopSpeed },
+  } = honda;
+
+  const {
+    coloursByPopularity: [teslaTopColour],
+  } = tesla;
+  const {
+    coloursByPopularity: [hondaTopColour],
+  } = honda;
+
+  //const teslaTopSpeed = tesla.speedStats.topSpeed;
+  // const hondaTopSpeed = honda.speedStats.topSpeed;
+  // const teslaTopColour = tesla.coloursByPopularity[0];
+  //const hondaTopColour = honda.coloursByPopularity[0];
 
   var options = { hour12: false };
   let localTime = new Date().toLocaleTimeString("en-US", options);
